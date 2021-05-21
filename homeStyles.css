@@ -1,0 +1,103 @@
+body{
+  background-image: url("images/movieReel.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img{
+  opacity: 0.5;
+}
+
+header,footer, h1 {
+   color: white;
+   padding: 0.5em;
+   font-family: Impact, Charcoal, sans-serif;
+   font-size: 35px;
+   text-align: center;
+}
+
+form{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    font-size: 35px;
+    text-align: center;
+}
+
+input[type=text], input[type=password]{
+  width: 60%;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 15px 50px 30px 5px;
+  font-size: 20px;
+}
+
+input::placeholder{
+  font-size: 20px;
+  font-style: italic;
+}
+
+legend{
+  font-size: 30px;
+  color: white;
+}
+
+loginBanner{
+  font-style: italic;
+}
+
+.facebook{
+  font-size: 20px;
+  padding: 14px 40px;
+  background-color: #008CBA;
+  color: white;
+  border-radius: 8px;
+  border: #008CBA;
+  width: 50%;
+  font-weight: 900;
+
+}
+
+.google{
+  font-size: 20px;
+  padding: 14px 40px;
+  background-color: #fa4848;
+  color: white;
+  border-radius: 8px;
+  border: #008CBA;
+  width: 50%;
+  font-weight: 900;
+}
+
+#homeForm{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.loginButton{
+  font-size: 20px;
+  font-weight: 900;
+  padding: 14px 40px;
+  background-color: #525252;
+  color: white;
+  border-radius: 8px;
+  border: #61ff90;
+  width: 50%;
+}
+
+.signupButton{
+  font-size: 20px;
+  font-weight: 900;
+  padding: 14px 40px;
+  background-color: #525252;
+  color: white;
+  border-radius: 8px;
+  border: #61ff90;
+  width: 50%;
+}
+
+.otherOptions{
+  text-align: center;
+}
+
+#otherOptions{
+  background-color: transparent;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search For Movies</title>
+    <link rel="stylesheet" href="reviewStyles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function getID(variable) {
+
+            var fullLink = window.location.search.substring(1);
+            var token = fullLink.split("?");
+            for (var i = 0; fullLink.length; i++) {
+                var pair = token[i].split("=");
+
+                return pair[1];
+            }
+        }
+
+        function display() {
+            var searchNumber = getID("userInput");
+
+            var url = "http://www.omdbapi.com/?";
+            var data = "apikey=38f65a33&t=" + searchNumber;
+
+            $.get(url, data).done(function (response) {
+                $("#movies").append(
+                    '<table class ="movieDisplay"' +
+                    '<tr><td>' + response.Title + '(' + response.Year + ')' + '</td></tr>' +
+                    '<tr colspan="2"><td>' + '<img src="' + response.Poster + '"</img>' + '</td>' +
+                    '<td>'+ response.Plot + '<br><br> Genre: ' + response.Genre + '<br><br> Director: ' +
+                    response.Director + '<br><br> IMDB Rating: ' + response.imdbRating
+                );
+
+
+            });
+        }
+
+        $(document).ready(function () {
+
+
+            display();
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <!-- This is the landing page to search for movies -->
+    <!-- <form action="home.html">
+            <button id="logout" formaction="home.html">logout</button>
+         </form>  -->
+
+    <main id="main">
+
+
+        <div id="movies">
+
+        </div>
+        <div class="comment">
+          <h2>User Reviews</h2>
+                <input id="name" type="text " placeholder="Enter your name"></input>
+                <input id="rate" type="text "placeholder="Enter Number from 1-5"></input>
+                <br>
+                <br>
+                <textarea id="userThoughts" type="text" rows= "5" cols="49" placeholder="Write your review here"></textarea>
+                <br>
+                <input type="submit" id="postButton" value="Post" onclick="postReviews()" ></input>
+                <br>
+                <br>
+            </div>
+            <div id="userReviews">
+
+            </div>
+            <script type="text/javascript">
+            var titles = [];
+            var titleInput = document.getElementById("userThoughts");
+            var nameInput = document.getElementById("name");
+            var rateInput = document.getElementById("rate");
+            var messageBox = document.getElementById("userReviews");
+
+            function postReviews () {
+                titles.push("Name: " + nameInput.value);
+                titles.push("Rating: " + rateInput.value);
+                titles.push("Review: </br>" + titleInput.value + "<hr>");
+                clearForm();
+            }
+            function clearForm ()
+            {
+                nameInput.value = "";
+                rateInput.value = "";
+                titleInput.value = "";
+                messageBox.innerHTML = "";
+                messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>";
+            }
+            </script>
+
+
+    </div>
+    <div id = "Karen">
+
+        Name: Karen <br>
+        Rating: 4 <br>
+        Review:<br> This movie is great! Excellent plot!<br>
+
+        <hr>
+    </div>
+    <div id ="Mike">
+        Name: Mike <br>
+        Rating: 3 <br>
+        Review: <br>This movie seemed low budget. CGI needs work
+    </div>
+    </main>
+
+</body>
+
+</html>

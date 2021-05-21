@@ -1,0 +1,72 @@
+body{
+    background-image: url("images/movieReel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+h1 , main {
+    color:white;
+    text-align:right;
+    margin-right:66px;
+}
+
+#movies {
+    margin-left: 60px;
+}
+
+#movieTable{
+  border-spacing: 100px;
+}
+
+#moreInfo{
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 15px;
+  background-color: #525252;
+  color: white;
+  border-radius: 8px;
+  border: #61ff90;
+  width: 50%;
+}
+
+#displayButton{
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 10px;
+  background-color: #525252;
+  color: white;
+  border-radius: 8px;
+  border: #525252;
+}
+
+#logout{
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 10px;
+  background-color: #525252;
+  color: white;
+  border-radius: 8px;
+  border: #525252;
+  margin-right: 66px;
+}
+
+input[type=text]{
+  width: 20%;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 15px 50px 30px 5px;
+  font-size: 15px;
+}
+
+#showUser{
+  text-align: right;
+  color: white;
+  font-size: 20x;
+  font-weight: 500;
+  font-family: Verdana;
+}
+
+input::placeholder{
+  font-size: 20px;
+  font-style: italic;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search For Movies</title>
+    <link rel="stylesheet" href="landingStyles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+        // Function that will display array of movies on search home page
+        function displayAll() {
+            var url = "http://www.omdbapi.com/?";
+            var key = "apikey=38f65a33&t=";
+            let movies = ['IT', 'Fast Five', "Anchorman: The Legend of Ron Burgundy ", "The Dark Knight", "Breakfast Club", "Star Wars", "Super Troopers", "The Hangover", "The Avengers", "Interstellar", "Blade", "Zombieland", "Wolf of Wall street", "Up"]
+
+            for (var i = 0; i < movies.length / 2; i++) {
+                data = key + movies[i];
+
+                $.get(url, data).done(function (response) {
+                    $("#row1").append(
+                        '<td><img id ="'+movies[i] + '" height =300px width =250px  src=" ' + response.Poster + ' "</img><form id="movieSender" action="reviews.html"><input type ="hidden" id = "userInput" name ="userInput" value ="' +response.Title +'"><button id=moreInfo> More Info</form></td>'
+                    )
+
+
+
+                });
+            }
+            for (var j = movies.length / 2; j < movies.length; j++) {
+                data = key + movies[j];
+
+                $.get(url, data).done(function (response) {
+                    $("#row2").append(
+                        '<td><img id ="'+movies[j] + '" height =300px width =250px  src=" ' + response.Poster + ' "</img><form id="movieButton" action = "reviews.html"><input type ="hidden" id = "userInput" name ="userInput" value ="' +response.Title +'"><button id=moreInfo> More Info</form></td>'
+
+                    )
+
+                });
+            }
+        }
+
+        function getUser(variable) {
+
+            var fullLink = window.location.search.substring(1);
+            var token = fullLink.split("?") && fullLink.split("&");
+            for (var i = 0; fullLink.length; i++) {
+                var pair = token[i].split("=");
+
+                return pair[1];
+            }
+
+
+        }
+
+
+        $(document).ready(function () {
+
+          var username = getUser("username");
+
+          $("#showUser").append(
+            '<h1> Welcome ' + username + '!</h1>'
+          )
+
+            displayAll();
+
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <!-- This is the landing page to search for movies -->
+
+    <main id="main">
+
+      <div id="showUser">
+
+      </div>
+
+      <button type="button" id="logout" onclick="location.href='home.html'">Logout</button>
+
+
+        <h1> Movie Search </h1>
+
+
+        <form id="userForm" action="reviews.html">
+            <input type="text" id="userInput" name="userInput" placeholder="Search movies">
+
+            <button id="displayButton">
+                Click to display results
+            </button>
+
+        </form>
+
+        <div id="movies">
+
+                <table id="movieTable">
+
+                <tr id ="row1"></tr>
+                <tr id="row2"></tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
